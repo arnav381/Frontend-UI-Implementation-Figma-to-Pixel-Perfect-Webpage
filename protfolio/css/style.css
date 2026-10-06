@@ -1,0 +1,93 @@
+/* ===== Design tokens ===== */
+:root {
+  /* Colors */
+  --primary-accent: #FFB400;
+  --bg-page: #F7F8FA;
+  --bg-card: #FFFFFF;
+  --text-primary: #2B2B2B;
+  --text-muted: #767676;
+  --input-bg: #E8EAEF;
+
+  /* Layout & Spacing */
+  --content-max-width: 1140px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-round: 50%;
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.05);
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ===== Base ===== */
+body {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+}
+
+/* ===== Header / Navbar ===== */
+.header {
+  padding: 24px 20px;
+}
+
+.nav {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 48px;
+  height: 28px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  display: block;
+  padding: 8px 18px;
+  border-radius: 999px; /* pill shape */
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background-color: var(--input-bg);
+}
+
+/* Active page: yellow pill */
+.nav-link.active {
+  background-color: var(--primary-accent);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Visible keyboard focus */
+.nav-link:focus-visible,
+.nav-logo:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
