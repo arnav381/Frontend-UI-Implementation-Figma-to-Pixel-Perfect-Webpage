@@ -28,48 +28,49 @@ body {
 
 /* ===== Header / Navbar ===== */
 .header {
-  padding: 24px 20px;
+  height: 152px;
+  padding: 0 84px 0 98px;
+  background-color: var(--bg-card);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .nav {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .nav-logo img {
-  width: 48px;
-  height: 28px;
+  width: 152px;
+  height: 62px;
 }
 
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 15px;
 }
 
 .nav-link {
   display: block;
-  padding: 8px 18px;
-  border-radius: 999px; /* pill shape */
-  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm); /* 6px */
+  font-size: 14px;
   font-weight: 500;
-  color: var(--text-muted);
+  line-height: 20px;
+  color: #000000;
   transition: color 0.25s ease, background-color 0.25s ease;
 }
 
 .nav-link:hover {
-  color: var(--text-primary);
   background-color: var(--input-bg);
 }
 
 /* Active page: yellow pill */
 .nav-link.active {
   background-color: var(--primary-accent);
-  color: var(--text-primary);
-  font-weight: 600;
+  margin-right: 13px; /* extra space after Home, as in the design */
 }
 
 /* Visible keyboard focus */
@@ -81,6 +82,11 @@ body {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 20px;
+  }
+
   .nav {
     flex-direction: column;
     gap: 16px;
@@ -89,5 +95,9 @@ body {
   .nav-list {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .nav-link.active {
+    margin-right: 0;
   }
 }
