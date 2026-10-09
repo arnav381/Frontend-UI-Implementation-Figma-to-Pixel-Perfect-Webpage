@@ -1,4 +1,3 @@
-/* Simple CSS reset */
 *,
 *::before,
 *::after {
@@ -13,6 +12,13 @@ html {
 
 body {
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 ul {
@@ -24,13 +30,9 @@ a {
   text-decoration: none;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button,
-input,
-textarea {
+button {
   font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
 }

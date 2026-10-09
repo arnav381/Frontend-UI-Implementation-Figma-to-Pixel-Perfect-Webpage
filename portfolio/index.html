@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rayan Adlrdard | Front-end Developer</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <header class="header">
     <nav class="nav" aria-label="Main navigation">
-      <a href="#home" class="nav-logo" aria-label="Home">
-        <img src="assets/icons/logo.png" alt="Logo">
+      <a href="#home" class="nav-brand" aria-label="Go to home">
+        <img src="assets/images/logo.png" alt="Glasses logo" width="154" height="64">
       </a>
 
-      <ul class="nav-list">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-list" id="nav-menu">
         <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#education" class="nav-link">Education</a></li>
@@ -32,9 +33,46 @@
   </header>
 
   <main>
-    <!-- Hero section comes in step 2 -->
-  </main>
+    <section class="hero" id="home">
+      <div class="hero-frame">
 
+      <!-- Decorative floating shapes (positions are px on the 1440 x 630 design frame) -->
+      <span class="shape shape-circle c-yellow" style="--x:57;--y:40;--d:0s;--dx:10px;--dy:-18px;--t:5s" aria-hidden="true"></span>
+      <span class="shape shape-circle c-green"  style="--x:742;--y:70;--d:-1.2s;--dx:-12px;--dy:16px;--t:6s" aria-hidden="true"></span>
+      <span class="shape shape-diamond c-yellow" style="--x:1281.5;--y:97;--d:-2.4s;--dx:-14px;--dy:12px;--t:5.5s" aria-hidden="true"></span>
+      <span class="shape shape-diamond c-blue"  style="--x:537.5;--y:452;--d:-0.6s;--dx:12px;--dy:-14px;--t:6.5s" aria-hidden="true"></span>
+      <span class="shape shape-circle c-yellow" style="--x:796;--y:513;--d:-3s;--dx:14px;--dy:14px;--t:7s" aria-hidden="true"></span>
+      <span class="shape shape-circle c-green"  style="--x:125;--y:569;--d:-1.8s;--dx:-10px;--dy:-16px;--t:5s" aria-hidden="true"></span>
+      <svg class="shape shape-triangle" style="--x:1316;--y:576;--d:-2.8s;--dx:12px;--dy:14px;--t:6s" width="19" height="16"
+           viewBox="0 0 19 16" fill="none" aria-hidden="true">
+        <path d="M9.5 1.6 17.4 14.4H1.6Z" stroke="#FA532E" stroke-width="2" stroke-linejoin="miter"/>
+      </svg>
+
+      <div class="hero-content">
+        <h1 class="hero-title">
+          I&rsquo;m Rayan Adlrdard <br>
+          <span class="highlight">Front-end</span> Developer
+        </h1>
+        <p class="hero-text">
+          Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Et, Volutpat Feugiat
+          Placerat Lobortis. Natoque Rutrum Semper Sed Suspendisse Nunc Lectus.
+        </p>
+        <a href="#contact" class="btn btn-primary">
+          Hire me
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor"
+               stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 5h10M7 1l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+
+      <img class="hero-art" src="assets/images/hero.png" width="809" height="570"
+           alt="Developer sitting on a desk next to a monitor showing code">
+      </div>
+    </section>
+
+    
+  </main>
   <script src="js/main.js"></script>
 </body>
 </html>
