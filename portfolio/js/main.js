@@ -178,7 +178,6 @@
       return;
     }
 
-    // Simulated submission feedback
     submitBtn.disabled = true;
     submitBtn.textContent = 'SENDING...';
 
