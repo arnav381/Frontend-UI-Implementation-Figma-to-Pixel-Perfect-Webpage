@@ -312,6 +312,79 @@
     <button type="button" class="slider-dot" aria-label="Go to review 5"></button>
   </div>
 </section>
+
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-grid">
+
+        <h2 class="section-title contact-title" id="contact-title">Leave ME Your Info</h2>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-field form-field--name">
+            <label for="fullName">Your Full Name ( Required)</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name"
+                   aria-required="true" aria-describedby="fullName-error">
+            <p class="field-error" id="fullName-error" hidden></p>
+          </div>
+
+          <div class="form-field form-field--email">
+            <label for="email">Your Email ( Required)</label>
+            <input type="email" id="email" name="email" autocomplete="email"
+                   aria-required="true" aria-describedby="email-error">
+            <p class="field-error" id="email-error" hidden></p>
+          </div>
+
+          <div class="form-field form-field--subject">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
+          </div>
+
+          <div class="form-field form-field--message">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-send">SEND MESSAGE</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <h2 class="section-title contact-title contact-title--info">Contact Information</h2>
+
+        <div class="contact-info">
+          <article class="info-card info-card--location">
+            <h3 class="visually-hidden">Location</h3>
+            <img class="info-icon" src="assets/images/icon-location.png" width="41" height="41" alt="">
+            <dl class="info-list">
+              <div class="info-row"><dt>Country:</dt><dd>Bangladesh</dd></div>
+              <div class="info-row"><dt>City:</dt><dd>Dhaka</dd></div>
+              <div class="info-row"><dt>Streat:</dt><dd>35 Vhatara, Badda</dd></div>
+            </dl>
+          </article>
+
+          <article class="info-card info-card--email">
+            <h3 class="visually-hidden">Online contacts</h3>
+            <img class="info-icon" src="assets/images/icon-email.png" width="41" height="41" alt="">
+            <dl class="info-list">
+              <div class="info-row"><dt>Email:</dt><dd>Youremail@Gmail.Com</dd></div>
+              <div class="info-row"><dt>Skype:</dt><dd>@Yourusername</dd></div>
+              <div class="info-row"><dt>Telegram:</dt><dd>@Yourusername</dd></div>
+            </dl>
+          </article>
+
+          <article class="info-card info-card--phone">
+            <h3 class="visually-hidden">Phone numbers</h3>
+            <img class="info-icon" src="assets/images/icon-phone.png" width="41" height="41" alt="">
+            <dl class="info-list">
+              <div class="info-row"><dt>Support Services:</dt><dd>15369</dd></div>
+              <div class="info-row"><dt>Office:</dt><dd>+58 (021)356 587 235</dd></div>
+              <div class="info-row"><dt>Personal:</dt><dd>+58 (021)356 587 235</dd></div>
+            </dl>
+          </article>
+        </div>
+
+      </div>
+    </section>
   </main>
   <script src="js/main.js"></script>
 </body>
