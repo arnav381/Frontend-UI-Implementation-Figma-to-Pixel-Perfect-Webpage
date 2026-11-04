@@ -4,24 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rayan Adlrdard | Front-end Developer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  </script>
+
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <header class="header">
     <nav class="nav" aria-label="Main navigation">
-      <a href="#home" class="nav-brand" aria-label="Go to home">
-        <img src="assets/images/logo.png" alt="Glasses logo" width="154" height="64">
+      <a href="#home" class="nav-logo" aria-label="Home">
+        <img src="assets/images/logo.png" alt="Logo">
       </a>
 
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul class="nav-list" id="nav-menu">
+      <ul class="nav-list">
         <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#education" class="nav-link">Education</a></li>
@@ -33,430 +37,422 @@
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="hero-frame">
-
-      <!-- Decorative floating shapes (positions are px on the 1440 x 630 design frame) -->
-      <span class="shape shape-circle c-yellow" style="--x:57;--y:40;--d:0s;--dx:10px;--dy:-18px;--t:5s" aria-hidden="true"></span>
-      <span class="shape shape-circle c-green"  style="--x:742;--y:70;--d:-1.2s;--dx:-12px;--dy:16px;--t:6s" aria-hidden="true"></span>
-      <span class="shape shape-diamond c-yellow" style="--x:1281.5;--y:97;--d:-2.4s;--dx:-14px;--dy:12px;--t:5.5s" aria-hidden="true"></span>
-      <span class="shape shape-diamond c-blue"  style="--x:537.5;--y:452;--d:-0.6s;--dx:12px;--dy:-14px;--t:6.5s" aria-hidden="true"></span>
-      <span class="shape shape-circle c-yellow" style="--x:796;--y:513;--d:-3s;--dx:14px;--dy:14px;--t:7s" aria-hidden="true"></span>
-      <span class="shape shape-circle c-green"  style="--x:125;--y:569;--d:-1.8s;--dx:-10px;--dy:-16px;--t:5s" aria-hidden="true"></span>
-      <svg class="shape shape-triangle" style="--x:1316;--y:576;--d:-2.8s;--dx:12px;--dy:14px;--t:6s" width="19" height="16"
-           viewBox="0 0 19 16" fill="none" aria-hidden="true">
-        <path d="M9.5 1.6 17.4 14.4H1.6Z" stroke="#FA532E" stroke-width="2" stroke-linejoin="miter"/>
-      </svg>
-
+    <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-content">
-        <h1 class="hero-title">
-          I&rsquo;m Rayan Adlrdard <br>
-          <span class="highlight">Front-end</span> Developer
+        <h1 class="hero-title" id="hero-title">
+          I’m Rayan Adlrdard
+          <span class="hero-role"><span class="highlight">Front-end</span> Developer</span>
         </h1>
+
         <p class="hero-text">
           Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Et, Volutpat Feugiat
           Placerat Lobortis. Natoque Rutrum Semper Sed Suspendisse Nunc Lectus.
         </p>
-        <a href="#contact" class="btn btn-primary">
+
+        <a href="#contact" class="btn-hire">
           Hire me
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor"
-               stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M1 5h10M7 1l4 4-4 4"/>
+          <svg class="btn-hire-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"
+               stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+               aria-hidden="true">
+            <path d="M1 6h10M7 2l4 4-4 4"/>
           </svg>
         </a>
       </div>
 
-      <img class="hero-art" src="assets/images/hero.png" width="809" height="570"
-           alt="Developer sitting on a desk next to a monitor showing code">
-      </div>
+      <img class="hero-illustration"
+           src="assets/images/hero.png"
+           alt="A developer sitting on a desk next to a monitor that shows code"
+           width="808" height="551">
+
+      <!-- Decorative floating shapes -->
+      <span class="shape shape-ring shape-ring--yellow-tl" aria-hidden="true"></span>
+      <span class="shape shape-ring shape-ring--green-top" aria-hidden="true"></span>
+      <span class="shape shape-diamond shape-diamond--yellow" aria-hidden="true"></span>
+      <span class="shape shape-diamond shape-diamond--blue" aria-hidden="true"></span>
+      <span class="shape shape-ring shape-ring--green-bl" aria-hidden="true"></span>
+      <span class="shape shape-ring shape-ring--yellow-knee" aria-hidden="true"></span>
+      <span class="shape shape-triangle" aria-hidden="true"></span>
     </section>
 
-    <section class="projects section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <header class="section-head">
-          <h2 class="section-title" id="projects-title">Projects</h2>
-          <p class="section-subtitle">
-            Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint.
-            Velit Officia Consequat Duis Enim Velit Mollit. Lorem Ipsum
-          </p>
-        </header>
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+  <div class="section-container">
+    <header class="section-header">
+      <h2 class="section-title" id="projects-title">Projects</h2>
+      <p class="section-subtitle">
+        Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint.
+        Velit Officia Consequat Duis Enim Velit Mollit. Lorem Ipsum
+      </p>
+    </header>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <img class="project-cover" src="assets/images/project-1.png" width="385" height="256"
-                 alt="Two developers reviewing code on a desktop monitor" loading="lazy">
-            <div class="project-body">
-              <h3 class="project-title"><a href="#" class="project-link">How To Make Flyer Design</a></h3>
-              <p class="project-desc">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
-              <ul class="tags" aria-label="Technologies used">
-              <li class="tag">Typescript</li>
-              <li class="tag">ReactJs</li>
-              <li class="tag">NextJs</li>
-              <li class="tag">CSS</li>
-              <li class="tag">HTML</li>
-              <li class="tag">MongoDB</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="project-cover" src="assets/images/project-2.png" width="385" height="256"
-                 alt="Developer working in front of two code monitors" loading="lazy">
-            <div class="project-body">
-              <h3 class="project-title"><a href="#" class="project-link">How To Make Flyer Design</a></h3>
-              <p class="project-desc">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
-              <ul class="tags" aria-label="Technologies used">
-              <li class="tag">Typescript</li>
-              <li class="tag">ReactJs</li>
-              <li class="tag">NextJs</li>
-              <li class="tag">CSS</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="project-cover" src="assets/images/project-3.png" width="385" height="256"
-                 alt="Software development desk with a laptop, notes and coffee" loading="lazy">
-            <div class="project-body">
-              <h3 class="project-title"><a href="#" class="project-link">How To Make Flyer Design</a></h3>
-              <p class="project-desc">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
-              <ul class="tags" aria-label="Technologies used">
-              <li class="tag">Typescript</li>
-              <li class="tag">ReactJs</li>
-              <li class="tag">NextJs</li>
-              <li class="tag">CSS</li>
-              <li class="tag">HTML</li>
-              <li class="tag">MongoDB</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="project-cover" src="assets/images/project-4.png" width="385" height="256"
-                 alt="Illustration of a computer surrounded by app icons" loading="lazy">
-            <div class="project-body">
-              <h3 class="project-title"><a href="#" class="project-link">How To Make Flyer Design</a></h3>
-              <p class="project-desc">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
-              <ul class="tags" aria-label="Technologies used">
-              <li class="tag">Typescript</li>
-              <li class="tag">ReactJs</li>
-              <li class="tag">NextJs</li>
-              <li class="tag">CSS</li>
-              <li class="tag">HTML</li>
-              <li class="tag">MongoDB</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="project-cover" src="assets/images/project-5.png" width="385" height="256"
-                 alt="Two developers reviewing code on a desktop monitor" loading="lazy">
-            <div class="project-body">
-              <h3 class="project-title"><a href="#" class="project-link">How To Make Flyer Design</a></h3>
-              <p class="project-desc">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
-              <ul class="tags" aria-label="Technologies used">
-              <li class="tag">Typescript</li>
-              <li class="tag">ReactJs</li>
-              <li class="tag">NextJs</li>
-              <li class="tag">CSS</li>
-              <li class="tag">HTML</li>
-              <li class="tag">MongoDB</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img class="project-cover" src="assets/images/project-6.png" width="385" height="256"
-                 alt="Hands typing on a laptop that shows code" loading="lazy">
-            <div class="project-body">
-              <h3 class="project-title"><a href="#" class="project-link">How To Make Flyer Design</a></h3>
-              <p class="project-desc">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
-              <ul class="tags" aria-label="Technologies used">
-              <li class="tag">Typescript</li>
-              <li class="tag">ReactJs</li>
-              <li class="tag">NextJs</li>
-              <li class="tag">CSS</li>
-              <li class="tag">HTML</li>
-              <li class="tag">MongoDB</li>
-              </ul>
-            </div>
-          </article>
-
+    <div class="project-grid">
+      <article class="project-card">
+        <img class="project-card-image" src="assets/images/project-1.png"
+             alt="Two developers reviewing code on a desktop monitor" width="386" height="256" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">How To Make Flyer Design</h3>
+          <p class="project-card-text">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
+          <ul class="tag-list" aria-label="Technologies used">
+          <li class="tag">Typescript</li>
+          <li class="tag">ReactJs</li>
+          <li class="tag">NextJs</li>
+          <li class="tag">CSS</li>
+          <li class="tag">HTML</li>
+          <li class="tag">MongoDB</li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <section class="recommendations section" id="recommendations" aria-labelledby="reviews-title">
-  <header class="section-head">
-    <h2 class="section-title" id="reviews-title">Recommendations</h2>
-    <p class="section-subtitle">
-      Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet
-      Sint. Velit Officia Consequat Duis Enim Velit Mollit. Lorem Ipsum
-    </p>
-  </header>
-
-  <div class="reviews-band">
-    <div class="reviews-viewport" tabindex="0" role="region"
-         aria-roledescription="carousel" aria-label="Recommendations">
-      <ul class="reviews-track">
-
-        <li class="review-slide" style="--pl:28px" role="group" aria-roledescription="slide" aria-label="1 of 5">
-          <article class="review">
-            <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"></div>
-            <h3 class="review-title">Great Quality!</h3>
-            <p class="review-text">
-              <span>Lorem Ipsum Dolor Sit Amet,</span>
-              <span>Consectetur Adipiscing Elit. Vitae Nulla</span>
-              <span>Diam In Ac Dictum A Urna Viverra Morbi.</span>
-              <span>Morbi Donec Amet....</span>
-            </p>
-            <footer class="review-author">
-              <img class="review-avatar" src="assets/images/avatar-talan.png" width="90" height="81" alt="Portrait of Talan Westervelt">
-              <div class="review-info" style="--gap:25px; --shift:6px">
-                <p class="review-name">Talan Westervelt</p>
-                <p class="review-role">Business Man</p>
-              </div>
-            </footer>
-          </article>
-        </li>
-
-        <li class="review-slide" style="--pl:27px" role="group" aria-roledescription="slide" aria-label="2 of 5">
-          <article class="review">
-            <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"></div>
-            <h3 class="review-title">Great Quality!</h3>
-            <p class="review-text">
-              <span>Lorem Ipsum Dolor Sit Amet,</span>
-              <span>Consectetur Adipiscing Elit. Vitae Nulla</span>
-              <span>Diam In Ac Dictum A Urna Viverra Morbi.</span>
-              <span>Morbi Donec Amet....</span>
-            </p>
-            <footer class="review-author">
-              <img class="review-avatar" src="assets/images/avatar-james.png" width="90" height="81" alt="Portrait of James Gouse">
-              <div class="review-info" style="--gap:14px; --shift:0px">
-                <p class="review-name">James Gouse</p>
-                <p class="review-role">Graphic Designer</p>
-              </div>
-            </footer>
-          </article>
-        </li>
-
-        <li class="review-slide" style="--pl:18px" role="group" aria-roledescription="slide" aria-label="3 of 5">
-          <article class="review">
-            <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"></div>
-            <h3 class="review-title">Amazing Work!</h3>
-            <p class="review-text">
-              <span>Lorem Ipsum Dolor Sit Amet,</span>
-              <span>Consectetur Adipiscing Elit. Vitae Nulla</span>
-              <span>Diam In Ac Dictum A Urna Viverra Morbi.</span>
-              <span>Morbi Donec Amet....</span>
-            </p>
-            <footer class="review-author">
-              <img class="review-avatar" src="assets/images/avatar-tiana.png" width="90" height="81" alt="Portrait of Tiana Philips">
-              <div class="review-info" style="--gap:28px; --shift:4px">
-                <p class="review-name">Tiana Philips</p>
-                <p class="review-role">Photographer</p>
-              </div>
-            </footer>
-          </article>
-        </li>
-
-        <li class="review-slide" style="--pl:28px" role="group" aria-roledescription="slide" aria-label="4 of 5">
-          <article class="review">
-            <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"></div>
-            <h3 class="review-title">Great Quality!</h3>
-            <p class="review-text">
-              <span>Lorem Ipsum Dolor Sit Amet,</span>
-              <span>Consectetur Adipiscing Elit. Vitae Nulla</span>
-              <span>Diam In Ac Dictum A Urna Viverra Morbi.</span>
-              <span>Morbi Donec Amet....</span>
-            </p>
-            <footer class="review-author">
-              <img class="review-avatar" src="assets/images/avatar-talan.png" width="90" height="81" alt="Portrait of Talan Westervelt">
-              <div class="review-info" style="--gap:25px; --shift:6px">
-                <p class="review-name">Talan Westervelt</p>
-                <p class="review-role">Business Man</p>
-              </div>
-            </footer>
-          </article>
-        </li>
-
-        <li class="review-slide" style="--pl:28px" role="group" aria-roledescription="slide" aria-label="5 of 5">
-          <article class="review">
-            <div class="stars" role="img" aria-label="Rated 5 out of 5 stars"></div>
-            <h3 class="review-title">Great Quality!</h3>
-            <p class="review-text">
-              <span>Lorem Ipsum Dolor Sit Amet,</span>
-              <span>Consectetur Adipiscing Elit. Vitae Nulla</span>
-              <span>Diam In Ac Dictum A Urna Viverra Morbi.</span>
-              <span>Morbi Donec Amet....</span>
-            </p>
-            <footer class="review-author">
-              <img class="review-avatar" src="assets/images/avatar-james.png" width="90" height="81" alt="Portrait of James Gouse">
-              <div class="review-info" style="--gap:14px; --shift:0px">
-                <p class="review-name">James Gouse</p>
-                <p class="review-role">Graphic Designer</p>
-              </div>
-            </footer>
-          </article>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-
-  <div class="slider-dots" role="group" aria-label="Choose a recommendation">
-    <button type="button" class="slider-dot" aria-label="Go to review 1"></button>
-    <button type="button" class="slider-dot" aria-label="Go to review 2"></button>
-    <button type="button" class="slider-dot active" aria-label="Go to review 3" aria-current="true"></button>
-    <button type="button" class="slider-dot" aria-label="Go to review 4"></button>
-    <button type="button" class="slider-dot" aria-label="Go to review 5"></button>
+      </article>
+      <article class="project-card">
+        <img class="project-card-image" src="assets/images/project-2.png"
+             alt="Two developers working together at a desk with code on screen" width="386" height="256" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">How To Make Flyer Design</h3>
+          <p class="project-card-text">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
+          <ul class="tag-list" aria-label="Technologies used">
+          <li class="tag">Typescript</li>
+          <li class="tag">ReactJs</li>
+          <li class="tag">NextJs</li>
+          <li class="tag">CSS</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project-card">
+        <img class="project-card-image" src="assets/images/project-3.png"
+             alt="Software development sign on a desk with a keyboard, notes and coffee" width="386" height="256" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">How To Make Flyer Design</h3>
+          <p class="project-card-text">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
+          <ul class="tag-list" aria-label="Technologies used">
+          <li class="tag">Typescript</li>
+          <li class="tag">ReactJs</li>
+          <li class="tag">NextJs</li>
+          <li class="tag">CSS</li>
+          <li class="tag">HTML</li>
+          <li class="tag">MongoDB</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project-card">
+        <img class="project-card-image" src="assets/images/project-4.png"
+             alt="Illustration of app icons connected around a computer screen" width="386" height="256" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">How To Make Flyer Design</h3>
+          <p class="project-card-text">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
+          <ul class="tag-list" aria-label="Technologies used">
+          <li class="tag">Typescript</li>
+          <li class="tag">ReactJs</li>
+          <li class="tag">NextJs</li>
+          <li class="tag">CSS</li>
+          <li class="tag">HTML</li>
+          <li class="tag">MongoDB</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project-card">
+        <img class="project-card-image" src="assets/images/project-5.png"
+             alt="Two developers reviewing code on a desktop monitor" width="386" height="256" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">How To Make Flyer Design</h3>
+          <p class="project-card-text">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
+          <ul class="tag-list" aria-label="Technologies used">
+          <li class="tag">Typescript</li>
+          <li class="tag">ReactJs</li>
+          <li class="tag">NextJs</li>
+          <li class="tag">CSS</li>
+          <li class="tag">HTML</li>
+          <li class="tag">MongoDB</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project-card">
+        <img class="project-card-image" src="assets/images/project-6.png"
+             alt="Laptop showing code next to a yellow coffee mug" width="386" height="256" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">How To Make Flyer Design</h3>
+          <p class="project-card-text">Lorem Ipsum Dolor Sit Amet, Consec Adipiscing Elit Awd And Lorem Ipsum...</p>
+          <ul class="tag-list" aria-label="Technologies used">
+          <li class="tag">Typescript</li>
+          <li class="tag">ReactJs</li>
+          <li class="tag">NextJs</li>
+          <li class="tag">CSS</li>
+          <li class="tag">HTML</li>
+          <li class="tag">MongoDB</li>
+          </ul>
+        </div>
+      </article>    </div>
   </div>
 </section>
 
-    <section class="contact section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-grid">
+  <section class="recommendations" id="recommendations" aria-labelledby="recommendations-title">
+      <div class="section-container">
+        <header class="section-header">
+          <h2 class="section-title" id="recommendations-title">Recommendations</h2>
+          <p class="section-subtitle">
+            Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet <br>
+            Sint. Velit Officia Consequat Duis Enim Velit Mollit. Lorem Ipsum
+          </p>
+        </header>
+ 
+        <div class="reviews" role="region" aria-roledescription="carousel" aria-label="Client recommendations">
+          <div class="reviews-track">
+            <article class="review" role="group" aria-roledescription="slide" aria-label="1 of 5">
+              <p class="review-stars" role="img" aria-label="5 out of 5 stars"></p>
+              <h3 class="review-title">Amazing Work!</h3>
+              <p class="review-text">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Vitae Nulla Diam In Ac Dictum A Urna Viverra Morbi. Morbi Donec Amet....</p>
+              <footer class="review-author">
+                <img class="review-avatar" src="assets/images/avatar-talan.png"
+                     alt="Portrait of Talan Westervelt" width="80" height="80" loading="lazy">
+                <div>
+                  <p class="review-name">Talan Westervelt</p>
+                  <p class="review-role">Business Man</p>
+                </div>
+              </footer>
+            </article>
+            <article class="review" role="group" aria-roledescription="slide" aria-label="2 of 5" style="padding-left: 26px; padding-right: 26px;">
+              <p class="review-stars" role="img" aria-label="5 out of 5 stars"></p>
+              <h3 class="review-title">Great Quality!</h3>
+              <p class="review-text">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Vitae Nulla Diam In Ac Dictum A Urna Viverra Morbi. Morbi Donec Amet....</p>
+              <footer class="review-author" style="gap: 14px;">
+                <img class="review-avatar" src="assets/images/avatar-james.png"
+                     alt="Portrait of James Gouse" width="80" height="80" loading="lazy">
+                <div>
+                  <p class="review-name">James Gouse</p>
+                  <p class="review-role" style="margin-left: 0;">Graphic Designer</p>
+                </div>
+              </footer>
+            </article>
+            <article class="review" role="group" aria-roledescription="slide" aria-label="3 of 5">
+              <p class="review-stars" role="img" aria-label="5 out of 5 stars"></p>
+              <h3 class="review-title">Amazing Work!</h3>
+              <p class="review-text">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Vitae Nulla Diam In Ac Dictum A Urna Viverra Morbi. Morbi Donec Amet....</p>
+              <footer class="review-author">
+                <img class="review-avatar" src="assets/images/avatar-tiana.png"
+                     alt="Portrait of Tiana Philips" width="80" height="80" loading="lazy">
+                <div>
+                  <p class="review-name">Tiana Philips</p>
+                  <p class="review-role">Photographer</p>
+                </div>
+              </footer>
+            </article>
+            <article class="review" role="group" aria-roledescription="slide" aria-label="4 of 5" style="padding-left: 30px;">
+              <p class="review-stars" role="img" aria-label="5 out of 5 stars"></p>
+              <h3 class="review-title">Great Quality!</h3>
+              <p class="review-text">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Vitae Nulla Diam In Ac Dictum A Urna Viverra Morbi. Morbi Donec Amet....</p>
+              <footer class="review-author" style="gap: 24px;">
+                <img class="review-avatar" src="assets/images/avatar-talan.png"
+                     alt="Portrait of Talan Westervelt" width="80" height="80" loading="lazy">
+                <div>
+                  <p class="review-name">Talan Westervelt</p>
+                  <p class="review-role" style="margin-left: 7px;">Business Man</p>
+                </div>
+              </footer>
+            </article>
+            <article class="review" role="group" aria-roledescription="slide" aria-label="5 of 5">
+              <p class="review-stars" role="img" aria-label="5 out of 5 stars"></p>
+              <h3 class="review-title">Great Quality!</h3>
+              <p class="review-text">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Vitae Nulla Diam In Ac Dictum A Urna Viverra Morbi. Morbi Donec Amet....</p>
+              <footer class="review-author">
+                <img class="review-avatar" src="assets/images/avatar-james.png"
+                     alt="Portrait of James Gouse" width="80" height="80" loading="lazy">
+                <div>
+                  <p class="review-name">James Gouse</p>
+                  <p class="review-role">Graphic Designer</p>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+ 
+        <div class="slider-dots" role="group" aria-label="Choose recommendation">
+          <button class="slider-dot" type="button" aria-label="Show recommendation 1"></button>
+          <button class="slider-dot" type="button" aria-label="Show recommendation 2"></button>
+          <button class="slider-dot active" type="button" aria-label="Show recommendation 3" aria-current="true"></button>
+          <button class="slider-dot" type="button" aria-label="Show recommendation 4"></button>
+          <button class="slider-dot" type="button" aria-label="Show recommendation 5"></button>
+        </div>
+      </div>
+    </section>
 
-        <h2 class="section-title contact-title" id="contact-title">Leave ME Your Info</h2>
+    <section class="contact" id="contact" aria-labelledby="contact-form-title">
+      <div class="section-container contact-grid">
 
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-field form-field--name">
+        <div class="contact-col">
+          <h2 class="section-title contact-title" id="contact-form-title">Leave ME Your Info</h2>
+
+          <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-field">
             <label for="fullName">Your Full Name ( Required)</label>
-            <input type="text" id="fullName" name="fullName" autocomplete="name"
-                   aria-required="true" aria-describedby="fullName-error">
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required>
             <p class="field-error" id="fullName-error" hidden></p>
           </div>
-
-          <div class="form-field form-field--email">
+          <div class="form-field">
             <label for="email">Your Email ( Required)</label>
-            <input type="email" id="email" name="email" autocomplete="email"
-                   aria-required="true" aria-describedby="email-error">
+            <input type="email" id="email" name="email" autocomplete="email" required>
             <p class="field-error" id="email-error" hidden></p>
           </div>
-
-          <div class="form-field form-field--subject">
+          <div class="form-field">
             <label for="subject">Subject</label>
             <input type="text" id="subject" name="subject">
+            <p class="field-error" id="subject-error" hidden></p>
           </div>
-
-          <div class="form-field form-field--message">
+          <div class="form-field">
             <label for="message">Your Message</label>
-            <textarea id="message" name="message"></textarea>
+            <textarea id="message" name="message" rows="6" aria-label="Your Message"></textarea>
+            <p class="field-error" id="message-error" hidden></p>
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn-send">SEND MESSAGE</button>
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <button class="btn-send" type="submit">Send message</button>
+            <p class="form-status" id="formStatus" role="status"></p>
           </div>
         </form>
-
-        <h2 class="section-title contact-title contact-title--info">Contact Information</h2>
-
-        <div class="contact-info">
-          <article class="info-card info-card--location">
-            <h3 class="visually-hidden">Location</h3>
-            <img class="info-icon" src="assets/images/icon-location.png" width="41" height="41" alt="">
-            <dl class="info-list">
-              <div class="info-row"><dt>Country:</dt><dd>Bangladesh</dd></div>
-              <div class="info-row"><dt>City:</dt><dd>Dhaka</dd></div>
-              <div class="info-row"><dt>Streat:</dt><dd>35 Vhatara, Badda</dd></div>
-            </dl>
-          </article>
-
-          <article class="info-card info-card--email">
-            <h3 class="visually-hidden">Online contacts</h3>
-            <img class="info-icon" src="assets/images/icon-email.png" width="41" height="41" alt="">
-            <dl class="info-list">
-              <div class="info-row"><dt>Email:</dt><dd>Youremail@Gmail.Com</dd></div>
-              <div class="info-row"><dt>Skype:</dt><dd>@Yourusername</dd></div>
-              <div class="info-row"><dt>Telegram:</dt><dd>@Yourusername</dd></div>
-            </dl>
-          </article>
-
-          <article class="info-card info-card--phone">
-            <h3 class="visually-hidden">Phone numbers</h3>
-            <img class="info-icon" src="assets/images/icon-phone.png" width="41" height="41" alt="">
-            <dl class="info-list">
-              <div class="info-row"><dt>Support Services:</dt><dd>15369</dd></div>
-              <div class="info-row"><dt>Office:</dt><dd>+58 (021)356 587 235</dd></div>
-              <div class="info-row"><dt>Personal:</dt><dd>+58 (021)356 587 235</dd></div>
-            </dl>
-          </article>
-        </div>
-
       </div>
-    </section>
-  </main>
 
-  <footer class="site-footer" id="footer">
-    <div class="footer-partners">
-      <ul class="partner-list" aria-label="Partners">
-        <li><img src="assets/images/footer-logo1.png" width="140" height="144" alt="3 eerrate logo" loading="lazy"></li>
-        <li><img src="assets/images/footer-logo2.png" width="140" height="144" alt="GL logo" loading="lazy"></li>
-        <li><img src="assets/images/footer-logo3.png" width="140" height="144" alt="Genra te logo" loading="lazy"></li>
-        <li><img src="assets/images/footer-logo4.png" width="140" height="144" alt="Generate logo" loading="lazy"></li>
+      <div class="contact-col">
+        <h2 class="section-title contact-title">Contact Information</h2>
+        <div class="contact-cards">
+        <article class="contact-card" aria-label="Location">
+          <span class="contact-badge" aria-hidden="true">
+            <img src="assets/images/location.png" alt="Location icon">
+          </span>
+          <dl class="contact-list">
+            <div class="contact-row">
+              <dt>Country:</dt>
+              <dd>Bangladesh</dd>
+            </div>
+            <div class="contact-row">
+              <dt>City:</dt>
+              <dd>Dhaka</dd>
+            </div>
+            <div class="contact-row">
+              <dt>Streat:</dt>
+              <dd>35 Vhatara, Badda</dd>
+            </div>
+          </dl>
+        </article>
+        <article class="contact-card" aria-label="Online contacts">
+          <span class="contact-badge" aria-hidden="true">
+            <img src="assets/images/e-mail.png" alt="Mail icon">
+          </span>
+          <dl class="contact-list">
+            <div class="contact-row">
+              <dt>Email:</dt>
+              <dd><a href="mailto:Youremail@Gmail.Com">Youremail@Gmail.Com</a></dd>
+            </div>
+            <div class="contact-row">
+              <dt>Skype:</dt>
+              <dd>@Yourusername</dd>
+            </div>
+            <div class="contact-row">
+              <dt>Telegram:</dt>
+              <dd>@Yourusername</dd>
+            </div>
+          </dl>
+        </article>
+        <article class="contact-card" aria-label="Phone numbers">
+          <span class="contact-badge" aria-hidden="true">
+            <img src="assets/images/mobile.png" alt="Phone icon">
+          </span>
+          <dl class="contact-list">
+            <div class="contact-row">
+              <dt>Support Services:</dt>
+              <dd>15369</dd>
+            </div>
+            <div class="contact-row">
+              <dt>Office:</dt>
+              <dd><a href="tel:+58021356587235">+58 (021)356 587 235</a></dd>
+            </div>
+            <div class="contact-row">
+              <dt>Personal:</dt>
+              <dd><a href="tel:+58021356587235">+58 (021)356 587 235</a></dd>
+            </div>
+          </dl>
+        </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="partners" aria-label="Partners">
+    <div class="section-container">
+      <ul class="partner-list">
+        <li><img src="assets/images/footer-logo1.png" alt="3 eerrate" width="140" height="144"></li>
+        <li><img src="assets/images/footer-logo2.png" alt="GL" width="140" height="144"></li>
+        <li><img src="assets/images/footer-logo3.png" alt="Genrate" width="140" height="144"></li>
+        <li><img src="assets/images/footer-logo4.png" alt="Generate" width="140" height="144"></li>
       </ul>
     </div>
+  </section>
+  </main>
 
+  <footer class="site-footer">
     <div class="footer-main">
-      <div class="footer-grid">
+      <div class="section-container">
+        <img class="footer-logo" src="assets/images/glass.png"
+             alt="Rayan Adlrdard glasses logo" width="158" height="76">
 
-        <a href="#home" class="footer-brand" aria-label="Go to home">
-          <img src="assets/images/glass.png" width="158" height="76" alt="Glasses logo">
-        </a>
+        <div class="footer-grid">
 
-        <ul class="footer-ratings" aria-label="App ratings">
-          <li class="rating">
-            <img src="assets/images/upwork.png" width="91" height="40" alt="Upwork" loading="lazy">
-            <p>4.5/5 Rating On Lorem</p>
-          </li>
-          <li class="rating">
-            <img src="assets/images/dribble.png" width="73" height="40" alt="Dribbble" loading="lazy">
-            <p>9/10 Rating On Ipsum</p>
-          </li>
-          <li class="rating">
-            <img src="assets/images/fiverr.png" width="76" height="40" alt="Fiverr" loading="lazy">
-            <p>4.5/5 Rating On Dorel</p>
-          </li>
-        </ul>
-
-        <nav class="footer-col" aria-labelledby="footer-quick-title">
-          <h2 class="footer-title" id="footer-quick-title">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#recommendations">Recommendations</a></li>
+          <ul class="rating-list">
+            <li>
+              <figure class="rating">
+                <img src="assets/images/upwork.png" alt="Upwork" width="91" height="40">
+                <figcaption>4.5/5 Rating On Lorem</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="rating">
+                <img src="assets/images/dribble.png" alt="Dribbble" width="73" height="40">
+                <figcaption>9/10 Rating On Ipsum</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="rating">
+                <img src="assets/images/fiverr.png" alt="Fiverr" width="76" height="40">
+                <figcaption>4.5/5 Rating On Dorel</figcaption>
+              </figure>
+            </li>
           </ul>
-        </nav>
 
-        <nav class="footer-col" aria-labelledby="footer-portfolio-title">
-          <h2 class="footer-title" id="footer-portfolio-title">Portfolio</h2>
-          <ul class="footer-links">
-            <li><a href="#projects">Frontend Development</a></li>
-            <li><a href="#projects">Backend Development</a></li>
-            <li><a href="#projects">Website Design</a></li>
-            <li><a href="#projects">Machine Learning</a></li>
-            <li><a href="#projects">Problem Solving & DSA</a></li>
-          </ul>
-        </nav>
+          <nav class="footer-col" aria-labelledby="footer-quick-links">
+            <h2 class="footer-heading" id="footer-quick-links">Quick Links</h2>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#recommendations">Recommendations</a></li>
+            </ul>
+          </nav>
 
-        <div class="footer-col">
-          <h2 class="footer-title" id="footer-connect-title">Connect</h2>
-          <ul class="footer-social" aria-labelledby="footer-connect-title">
-            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/linkedIn.png" width="100" height="25" alt="LinkedIn" loading="lazy"></a></li>
-            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/instagram.png" width="125" height="25" alt="Instagram" loading="lazy"></a></li>
-            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/facebook.png" width="107" height="25" alt="Facebook" loading="lazy"></a></li>
-          </ul>
+          <div class="footer-col">
+            <h2 class="footer-heading" id="footer-portfolio">Portfolio</h2>
+            <ul class="footer-links" aria-labelledby="footer-portfolio">
+              <li><a href="#projects">Frontend Development</a></li>
+              <li><a href="#projects">Backend Development</a></li>
+              <li><a href="#projects">Website Design</a></li>
+              <li><a href="#projects">Machine Learning</a></li>
+              <li><a href="#projects">Problem Solving &amp; DSA</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2 class="footer-heading" id="footer-connect">Connect</h2>
+            <ul class="social-list" aria-labelledby="footer-connect">
+              <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/linkedIn.png" alt="LinkedIn" width="100" height="25"></a></li>
+              <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/instagram.png" alt="Instagram" width="116" height="25"></a></li>
+              <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/facebook.png" alt="Facebook" width="106" height="25"></a></li>
+            </ul>
+          </div>
+
         </div>
-
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">
-        <img src="assets/images/icon-copyright.png" width="21" height="22" alt="">
-        <span>2024 Copyright, All Right Reserved</span>
+      <p class="copyright">
+        <img src="assets/images/icon-copyright.png" alt="" width="24" height="24">
+        2024 Copyright, All Right Reserved
       </p>
     </div>
   </footer>

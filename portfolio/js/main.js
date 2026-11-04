@@ -1,81 +1,89 @@
 'use strict';
 
-/* =========================================================
-   1. Navbar: highlight the link of the section in view
-   ========================================================= */
-(function initNavHighlight() {
-  const links = Array.from(document.querySelectorAll('.nav-link'));
-  const targets = links
-    .map((link) => ({ link, section: document.querySelector(link.getAttribute('href')) }))
-    .filter((item) => item.section);
+const resetScrollPosition = () => {
+  const forceTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
 
-  function setActive(activeLink) {
-    links.forEach((link) => {
-      const isActive = link === activeLink;
-      link.classList.toggle('active', isActive);
-      if (isActive) {
-        link.setAttribute('aria-current', 'page');
-      } else {
-        link.removeAttribute('aria-current');
-      }
-    });
-  }
+  forceTop();
+  requestAnimationFrame(forceTop);
+  setTimeout(forceTop, 0);
+};
 
-  links.forEach((link) => {
-    link.addEventListener('click', () => setActive(link));
+history.scrollRestoration = 'manual';
+window.addEventListener('load', () => {
+  resetScrollPosition();
+  setTimeout(resetScrollPosition, 50);
+}, { once: true });
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) resetScrollPosition();
+});
+resetScrollPosition();
+
+/* ==========================================================
+   Navbar: mobile menu toggle
+   ========================================================== */
+(() => {
+  const toggle = document.querySelector('.nav-toggle');
+  const list = document.getElementById('nav-list');
+  if (!toggle || !list) return;
+
+  const setOpen = (open) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    list.classList.toggle('is-open', open);
+  };
+
+  toggle.addEventListener('click', () => {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
   });
 
-  if (!('IntersectionObserver' in window) || !targets.length) return;
+  // Close after choosing a link
+  list.addEventListener('click', (e) => {
+    if (e.target.closest('.nav-link')) setOpen(false);
+  });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const match = targets.find((item) => item.section === entry.target);
-        if (match) setActive(match.link);
-      });
-    },
-    { rootMargin: '-40% 0px -55% 0px' }
-  );
-
-  targets.forEach((item) => observer.observe(item.section));
+  // Close with Escape and return focus to the toggle
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
 })();
 
-/* =========================================================
-   2. Recommendations carousel (active card stays centered)
-   ========================================================= */
-(function initCarousel() {
-  const viewport = document.querySelector('.reviews-viewport');
-  const track = document.querySelector('.reviews-track');
-  const dots = Array.from(document.querySelectorAll('.slider-dot'));
-  if (!viewport || !track || !dots.length) return;
+'use strict';
 
-  const slides = Array.from(track.children);
-  let currentIndex = dots.findIndex((dot) => dot.classList.contains('active'));
-  if (currentIndex < 0) currentIndex = 0;
+/* ==========================================================
+   Recommendations carousel (centre-mode)
+   The active slide is centred; its neighbours peek in at both edges.
+   ========================================================== */
+(() => {
+  const track = document.querySelector('.reviews-track');
+  const dots = document.querySelectorAll('.slider-dot');
+  if (!track || !dots.length) return;
+
+  const viewport = track.parentElement;
+  const slides = track.children;
+  let currentIndex = 2; // the third slide is active on load (matches the design)
 
   function updateSlide(index) {
-    currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+    currentIndex = index;
 
     const slideWidth = slides[0].offsetWidth;
     const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-    const slideCenter = currentIndex * (slideWidth + gap) + slideWidth / 2;
-    const offset = viewport.clientWidth / 2 - slideCenter;
 
+    // Put the active slide in the middle of the viewport
+    const offset = viewport.clientWidth / 2 - slideWidth / 2 - currentIndex * (slideWidth + gap);
     track.style.transform = `translateX(${offset}px)`;
 
     dots.forEach((dot, i) => {
       const isActive = i === currentIndex;
       dot.classList.toggle('active', isActive);
-      if (isActive) {
-        dot.setAttribute('aria-current', 'true');
-      } else {
-        dot.removeAttribute('aria-current');
-      }
-    });
-
-    slides.forEach((slide, i) => {
-      slide.setAttribute('aria-hidden', Math.abs(i - currentIndex) > 1 ? 'true' : 'false');
+      if (isActive) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
     });
   }
 
@@ -83,113 +91,92 @@
     dot.addEventListener('click', () => updateSlide(index));
   });
 
-  viewport.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      updateSlide(currentIndex + 1);
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      updateSlide(currentIndex - 1);
-    }
-  });
-
-  let touchStartX = null;
-  viewport.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-
-  viewport.addEventListener('touchend', (e) => {
-    if (touchStartX === null) return;
-    const diff = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(diff) > 40) updateSlide(currentIndex + (diff < 0 ? 1 : -1));
-    touchStartX = null;
+  // Arrow keys move between slides while a dot has focus
+  document.querySelector('.slider-dots').addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const next = e.key === 'ArrowRight'
+      ? Math.min(currentIndex + 1, dots.length - 1)
+      : Math.max(currentIndex - 1, 0);
+    updateSlide(next);
+    dots[next].focus();
   });
 
   window.addEventListener('resize', () => updateSlide(currentIndex));
-  window.addEventListener('load', () => updateSlide(currentIndex));
 
+  // Position without animation first, then enable the transition
   updateSlide(currentIndex);
+  requestAnimationFrame(() => track.classList.add('is-ready'));
 })();
 
-/* =========================================================
-   3. Contact form validation & UX state
-   ========================================================= */
-(function initContactForm() {
-  const contactForm = document.getElementById('contactForm');
-  if (!contactForm) return;
+/* ==========================================================
+   Contact form: validation + simulated submit
+   ========================================================== */
+(() => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
 
-  const nameInput = contactForm.querySelector('#fullName');
-  const emailInput = contactForm.querySelector('#email');
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const status = contactForm.querySelector('.form-status');
+  const status = document.getElementById('formStatus');
+  const submitBtn = form.querySelector('button[type="submit"]');
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  function setError(input, message) {
+  const setError = (input, message) => {
     const error = document.getElementById(`${input.id}-error`);
-    if (message) {
-      error.textContent = message;
-      error.hidden = false;
-      input.setAttribute('aria-invalid', 'true');
-    } else {
-      error.textContent = '';
-      error.hidden = true;
-      input.removeAttribute('aria-invalid');
+    error.textContent = message;
+    error.hidden = false;
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', error.id);
+  };
+
+  const clearError = (input) => {
+    const error = document.getElementById(`${input.id}-error`);
+    error.textContent = '';
+    error.hidden = true;
+    input.removeAttribute('aria-invalid');
+    input.removeAttribute('aria-describedby');
+  };
+
+  // Returns true when the field is valid
+  const validate = (input) => {
+    const value = input.value.trim();
+
+    if (input.required && !value) {
+      setError(input, 'This field is required.');
+      return false;
     }
-  }
-
-  function validate() {
-    let firstInvalid = null;
-
-    const name = nameInput.value.trim();
-    if (!name) {
-      setError(nameInput, 'Please enter your full name.');
-      firstInvalid = firstInvalid || nameInput;
-    } else {
-      setError(nameInput, '');
+    if (input.type === 'email' && value && !emailPattern.test(value)) {
+      setError(input, 'Please enter a valid email address.');
+      return false;
     }
+    clearError(input);
+    return true;
+  };
 
-    const email = emailInput.value.trim();
-    if (!email) {
-      setError(emailInput, 'Please enter your email address.');
-      firstInvalid = firstInvalid || emailInput;
-    } else if (!emailPattern.test(email)) {
-      setError(emailInput, 'Please enter a valid email address.');
-      firstInvalid = firstInvalid || emailInput;
-    } else {
-      setError(emailInput, '');
-    }
-
-    return firstInvalid;
-  }
-
-  [nameInput, emailInput].forEach((input) => {
-    input.addEventListener('input', () => {
-      if (input.hasAttribute('aria-invalid')) setError(input, '');
-    });
+  // Clear an error as soon as the user starts fixing it
+  form.addEventListener('input', (e) => {
+    if (e.target.hasAttribute('aria-invalid')) validate(e.target);
   });
 
-  contactForm.addEventListener('submit', (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     status.textContent = '';
 
-    const firstInvalid = validate();
-    if (firstInvalid) {
-      firstInvalid.focus();
+    const fields = [...form.querySelectorAll('input, textarea')];
+    const invalid = fields.filter((field) => !validate(field));
+
+    if (invalid.length) {
+      invalid[0].focus();
       return;
     }
 
+    // Simulated submission feedback
     submitBtn.disabled = true;
     submitBtn.textContent = 'SENDING...';
 
     setTimeout(() => {
-      contactForm.reset();
+      form.reset();
       submitBtn.disabled = false;
       submitBtn.textContent = 'SEND MESSAGE';
       status.textContent = 'Message received! Thank you for getting in touch.';
-
-      setTimeout(() => {
-        status.textContent = '';
-      }, 5000);
     }, 1000);
   });
 })();
